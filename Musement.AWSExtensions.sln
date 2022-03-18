@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A310D3EE-5A8A-4CA9-9F17-FA32EE825B53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Musement.AWSExtensions", "src\Musement.AWSExtensions\Musement.AWSExtensions.csproj", "{781978BC-D9FC-4B90-8750-67B2EB641D86}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{781978BC-D9FC-4B90-8750-67B2EB641D86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{781978BC-D9FC-4B90-8750-67B2EB641D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{781978BC-D9FC-4B90-8750-67B2EB641D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{781978BC-D9FC-4B90-8750-67B2EB641D86}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{781978BC-D9FC-4B90-8750-67B2EB641D86} = {A310D3EE-5A8A-4CA9-9F17-FA32EE825B53}
+	EndGlobalSection
+EndGlobal
