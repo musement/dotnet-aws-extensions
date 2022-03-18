@@ -4,4 +4,18 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <Authors>Musement;Fabio Di Peri;Riccardo Nale;Diego Bussola</Authors>
+    <Description>A set of Localstack-aware extensions for injecting AWS services</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/musement/dotnet-aws-extensions</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/musement/dotnet-aws-extensions</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
 </Project>
