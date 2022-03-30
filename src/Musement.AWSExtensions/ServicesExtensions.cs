@@ -1,6 +1,7 @@
 using System;
 using System.Globalization;
 using Amazon;
+using Amazon.DynamoDBv2;
 using Amazon.Extensions.NETCore.Setup;
 using Amazon.Runtime;
 using Amazon.S3;
@@ -103,5 +104,22 @@ public static class ServicesExtensions
         {
             Region = RegionEndpoint.EUWest1
         });
+    }
+
+    public static IServiceCollection AddAmazonDynamoDb(this IServiceCollection self)
+    {
+        if (UseLocalstack)
+        {
+            var config = new AmazonDynamoDBConfig
+            {
+                ServiceURL = LocalstackEndpoint,
+                UseHttp = true
+            };
+
+            var client = new AmazonDynamoDBClient(FakeCredentials, config);
+            return self.AddSingleton<IAmazonDynamoDB>(client);
+        }
+
+        return self.AddAWSService<IAmazonDynamoDB>();
     }
 }
