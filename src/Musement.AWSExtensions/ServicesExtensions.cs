@@ -8,6 +8,7 @@ using Amazon.S3;
 using Amazon.SimpleEmail;
 using Amazon.SimpleNotificationService;
 using Amazon.SQS;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 #pragma warning disable CA2000 // AWS services implement IDisposable
 
@@ -45,10 +46,11 @@ public static class ServicesExtensions
             };
 
             var client = new AmazonSimpleNotificationServiceClient(FakeCredentials, config);
-            return self.AddSingleton<IAmazonSimpleNotificationService>(client);
+            self.TryAddSingleton<IAmazonSimpleNotificationService>(client);
+            return self;
         }
 
-        return self.AddAWSService<IAmazonSimpleNotificationService>();
+        return self.TryAddAWSService<IAmazonSimpleNotificationService>();
     }
 
     public static IServiceCollection AddAmazonSes(this IServiceCollection self)
@@ -62,10 +64,11 @@ public static class ServicesExtensions
             };
 
             var client = new AmazonSimpleEmailServiceClient(FakeCredentials, config);
-            return self.AddSingleton<IAmazonSimpleEmailService>(client);
+            self.TryAddSingleton<IAmazonSimpleEmailService>(client);
+            return self;
         }
 
-        return self.AddAWSService<IAmazonSimpleEmailService>();
+        return self.TryAddAWSService<IAmazonSimpleEmailService>();
     }
 
     public static IServiceCollection AddAmazonS3(this IServiceCollection self)
@@ -80,10 +83,11 @@ public static class ServicesExtensions
             };
 
             var client = new AmazonS3Client(FakeCredentials, config);
-            return self.AddSingleton<IAmazonS3>(client);
+            self.TryAddSingleton<IAmazonS3>(client);
+            return self;
         }
 
-        return self.AddAWSService<IAmazonS3>();
+        return self.TryAddAWSService<IAmazonS3>();
     }
 
     public static IServiceCollection AddAmazonSqs(this IServiceCollection self)
@@ -97,10 +101,11 @@ public static class ServicesExtensions
             };
 
             var client = new AmazonSQSClient(FakeCredentials, config);
-            return self.AddSingleton<IAmazonSQS>(client);
+            self.TryAddSingleton<IAmazonSQS>(client);
+            return self;
         }
 
-        return self.AddAWSService<IAmazonSQS>(new AWSOptions
+        return self.TryAddAWSService<IAmazonSQS>(new AWSOptions
         {
             Region = RegionEndpoint.EUWest1
         });
@@ -117,9 +122,10 @@ public static class ServicesExtensions
             };
 
             var client = new AmazonDynamoDBClient(FakeCredentials, config);
-            return self.AddSingleton<IAmazonDynamoDB>(client);
+            self.TryAddSingleton<IAmazonDynamoDB>(client);
+            return self;
         }
 
-        return self.AddAWSService<IAmazonDynamoDB>();
+        return self.TryAddAWSService<IAmazonDynamoDB>();
     }
 }
